@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran — Bye Bye GTM!</title>
+  <meta name="description" content="Halaman pembayaran ebook Bye Bye GTM! via QRIS.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pay-top{padding:18px 0 0}
+    .back-link{color:var(--coral-dark);text-decoration:none;font-weight:600}
+    .pay-title{text-align:center;margin:10px 0 4px}
+    .pay-sub{text-align:center;color:var(--brown-soft);margin:0 0 8px}
+    .qris-card{max-width:430px;margin:24px auto 0;background:#fff;border:1px solid #f0e2e2;border-radius:18px;padding:28px 24px;text-align:center;box-shadow:var(--shadow)}
+    .qris-card img{width:260px;height:260px;image-rendering:pixelated}
+    .qris-merchant{font-weight:700;font-size:1.15rem;margin:10px 0 2px}
+    .qris-amount{font-size:1.05rem;margin:6px 0 14px}
+    .qris-steps{text-align:left;margin:0 auto;max-width:340px;line-height:1.55}
+    .qris-note{margin-top:16px;color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;font-size:.92rem}
+    .confirm-wrap{max-width:430px;margin:22px auto 0;text-align:center}
+    .form-card{max-width:430px;margin:24px auto 0;background:#fff;border:1px solid #f0e2e2;border-radius:18px;padding:28px 24px;box-shadow:var(--shadow)}
+    .form-card label{display:block;text-align:left;font-weight:600;margin:14px 0 6px}
+    .form-card input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #e3cfc2;border-radius:10px;font-size:1rem;font-family:inherit}
+    .form-card .hint{font-size:.9rem;color:var(--brown-soft);text-align:left;margin-top:4px}
+    .form-card button{margin-top:20px;width:100%}
+    .ok-note{display:none;margin-top:16px;color:#166534;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:10px 12px;font-size:.95rem}
+    [hidden]{display:none !important}
+  </style>
+</head>
+<body>
+
+  <div class="container pay-top">
+    <a class="back-link" href="index.html">← Kembali ke halaman utama</a>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="pay-title">Pembayaran</h1>
+      <p class="pay-sub">Selesaikan pembayaran via QRIS, lalu konfirmasi agar ebook dikirim ke email-mu.</p>
+
+      <div class="price-card">
+        <p class="price-label">Pesanan kamu</p>
+        <ul class="price-includes">
+          <li>✅ Ebook PDF 63 halaman — Bye Bye GTM!</li>
+          <li>✅ 60 resep + meal plan 30 hari</li>
+          <li>✅ 6 bonus printable</li>
+          <li>✅ Akses update seumur hidup</li>
+        </ul>
+        <p class="price-old">Rp149.000</p>
+        <p class="price-new">Rp79.000</p>
+      </div>
+
+      <!-- LANGKAH 1: QRIS -->
+      <div id="step-bayar">
+        <div class="qris-card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYgAAAGIAQMAAABhjeVlAAAABlBMVEX///8AAABVwtN+AAADAklEQVR42u1cS25cMQwji97/yuxCouxXtEC7sFZ0gskgYyMABZPU5wXIysr62yKgficK1PUTFEUIhOhd+PHffyMn/n39rJgA6sBQECBCBCoK/b53Bd3X8YCAAlx1ITgR4bW1dgXdrROS6g4QLJ6SIJ2rE6yW7seRkpITFWkBdUGoYLUaj2YlEQIoQaXzFg7i2hV0X5+QpLoVfR/adVEA1F/eFXRf3w9+DXDD3+xVcnIre9B9eYKlFhTwW6ZRgVL/Gu27kn+8PVHGyrRUrFSGSvKH9U5BdyseExShlKQjJDkKHaPkgysnBIDs9KOpSs7Iy24VV4lB97meNxtZvFvGWzYqEv17JT9f4ivZ0p535i3vsIIE3cf+ytYJTsV5XFXdnKplNZ0F3dd8VTm4zFcYOyVCHP9bnjjovuYr6eNuL4IyldmBKf5qpX7lWlWn4R2JkydW9YRQ/NWGnp8q1WSDmhTEN2OuTNB9zVeT7kkX+GYrOVXsbUH3ef3K+NtdnWa5k8Bu5Sb/WNCPjsLdA6Q4PfQWkvk86C74K+vHVLIwpayjL1XNCrqv78dcAF53xOMkNlyeMAm6z/UDnFGfGrm6eyCdm0c/FvnKzmryv0/VqhsjqbdvnXBVhFK3zC9xrzKWNHQWdF/ng0fG4VRwuoRd49VJU4LuQjykcVA6Naupvt/8FXTfnxCLsI669/dU2QUp/cEVfwW4IYvLSMkt2jJeE5ig+56vjoToEgpd7cL0B7HZPxevGXe6Uw722KJvh9KPWso/puDu0snUenWnItHzDb7CENSMXzkP1D15lfndFb7yowUqwnLppDlqBh6SDy72o66m09UpxJlP1AwrBt33freTkPG2nn+D5+HOuHvQXfBXHRmKcuvJ3ShNtPol6L7WD7c6OgcUyEtLOJcmfLXCV+q+h6Myoo7TEvFm5fmPBT3X9Gt1xuBaxz8ZetDd4KuvuE9zVmC9XnY3+rHid60f89DmdD2umffUr5b0w1LRjzvXsM/5XxnzWerta/WSrKysP6xfZXZkil+aZN8AAAAASUVORK5CYII=" alt="Kode QRIS pembayaran Bye Bye GTM" />
+          <p class="qris-merchant">BYE BYE GTM!</p>
+          <p class="qris-amount">Nominal bayar: <strong>Rp79.000</strong></p>
+          <ol class="qris-steps">
+            <li>Buka aplikasi bank atau e-wallet, pilih menu <strong>Scan / QRIS</strong>.</li>
+            <li>Scan kode di atas, lalu masukkan nominal <strong>Rp79.000</strong> (QRIS statis — nominal diisi manual, pastikan sama persis).</li>
+            <li>Selesaikan pembayaran dan simpan bukti bayarnya.</li>
+          </ol>
+          <p class="qris-note">⚠️ QRIS di atas masih <strong>CONTOH (dummy)</strong> untuk pratinjau tampilan — belum bisa menerima pembayaran. Akan diganti QRIS asli sebelum halaman dipromosikan.</p>
+        </div>
+        <div class="confirm-wrap">
+          <button type="button" class="btn btn-cta btn-big" id="btnKonfirmasi">✅ Saya Sudah Bayar — Konfirmasi</button>
+          <p class="hint" style="color:var(--brown-soft);font-size:.9rem">Klik tombol ini setelah pembayaran selesai untuk mengisi form konfirmasi.</p>
+        </div>
+      </div>
+
+      <!-- LANGKAH 2: FORM KONFIRMASI -->
+      <div id="step-form" hidden>
+        <form class="form-card" id="formKonfirmasi">
+          <h2 style="margin-top:0;text-align:center">Konfirmasi Pembayaran</h2>
+          <p class="hint">Isi data di bawah ini — admin akan mengirim ebook + bonus ke email-mu dan membalas ke WhatsApp-mu.</p>
+          <label for="f-nama">Nama lengkap</label>
+          <input id="f-nama" name="nama" type="text" placeholder="Nama kamu" required>
+          <label for="f-wa">Nomor WhatsApp</label>
+          <input id="f-wa" name="wa" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx" required>
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" placeholder="email@contoh.com" required>
+          <p class="hint">Setelah klik kirim, WhatsApp akan terbuka dengan pesan konfirmasi yang sudah terisi otomatis ke nomor admin — tinggal tekan kirim di WhatsApp.</p>
+          <button type="submit" class="btn btn-cta btn-big">Kirim Konfirmasi via WhatsApp</button>
+          <p class="ok-note" id="okNote">WhatsApp dibuka di tab baru — jangan lupa tekan <strong>Kirim</strong> di sana ya. Kalau tidak terbuka, <a href="#" id="waRetry">klik di sini untuk membuka lagi</a>.</p>
+          <p style="text-align:center;margin-top:14px"><a class="back-link" href="#" id="btnKembali">← Kembali ke kode QRIS</a></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="disclaimer"><strong>Disclaimer:</strong> Konten dalam ebook ini bersifat edukasi dan bukan pengganti saran medis profesional. Konsultasikan dengan dokter anak atau ahli gizi untuk kondisi kesehatan buah hati Anda.</p>
+      <p class="copyright">© 2026 Bye Bye GTM. Seluruh hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ⚠️ PLACEHOLDER: ganti dengan nomor WhatsApp ADMIN asli (format 62xxxxxxxxxx)
+    var ADMIN_WA = "6280000000000";
+
+    var stepBayar = document.getElementById('step-bayar');
+    var stepForm  = document.getElementById('step-form');
+    document.getElementById('btnKonfirmasi').addEventListener('click', function () {
+      stepBayar.hidden = true;
+      stepForm.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.getElementById('btnKembali').addEventListener('click', function (e) {
+      e.preventDefault();
+      stepForm.hidden = true;
+      stepBayar.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    var lastWaUrl = '#';
+    document.getElementById('formKonfirmasi').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nama  = document.getElementById('f-nama').value.trim();
+      var wa    = document.getElementById('f-wa').value.replace(/[^0-9]/g, '');
+      var email = document.getElementById('f-email').value.trim();
+      if (wa.charAt(0) === '0') wa = '62' + wa.slice(1);
+      else if (wa.charAt(0) === '8') wa = '62' + wa;
+      var pesan = 'Halo Admin Bye Bye GTM! \u{1F44B}\n\n' +
+        'Saya sudah bayar via QRIS sebesar *Rp79.000* untuk ebook *Bye Bye GTM!*.\n\n' +
+        'Nama: ' + nama + '\n' +
+        'No. WA: ' + wa + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Mohon ebook + bonusnya dikirim ke email saya. Terima kasih \u{1F64F}';
+      lastWaUrl = 'https://wa.me/' + ADMIN_WA + '?text=' + encodeURIComponent(pesan);
+      window.open(lastWaUrl, '_blank');
+      var ok = document.getElementById('okNote');
+      ok.style.display = 'block';
+    });
+    document.getElementById('waRetry').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(lastWaUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
