@@ -6,21 +6,13 @@
   <title>Bye Bye GTM! — Panduan MPASI Anti-Drama + Meal Plan 30 Hari</title>
   <meta name="description" content="Ebook digital 63 halaman: panduan MPASI anti-drama, 60 resep, dan meal plan 30 hari untuk bayi 6–12 bulan. Dari mogok makan jadi minta tambah.">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .qris-card{max-width:430px;margin:24px auto 0;background:#fff;border:1px solid #f0e2e2;border-radius:18px;padding:28px 24px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.07)}
-    .qris-card img{width:260px;height:260px;image-rendering:pixelated}
-    .qris-merchant{font-weight:700;font-size:1.15rem;margin:10px 0 2px}
-    .qris-amount{font-size:1.05rem;margin:6px 0 14px}
-    .qris-steps{text-align:left;margin:0 auto;max-width:340px;line-height:1.55}
-    .qris-note{margin-top:16px;color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;font-size:.92rem}
-  </style>
 </head>
 <body>
 
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="container">
-      <!-- PEMBAYARAN: QRIS statis — tombol beli mengarah ke bagian #bayar -->
+      <!-- PEMBAYARAN: QRIS statis — tombol beli mengarah ke halaman bayar.html -->
       <span class="badge">📕 Ebook Digital • 63 Halaman</span>
       <div class="hero-grid">
         <div class="hero-cover">
@@ -34,8 +26,8 @@
             <li>✅ Meal plan 30 hari siap pakai</li>
             <li>✅ 6 bonus printable</li>
           </ul>
-          <!-- PEMBAYARAN: tombol ke bagian QRIS #bayar -->
-          <a class="btn btn-cta" href="#bayar">Dapatkan Ebooknya Sekarang</a>
+          <!-- PEMBAYARAN: tombol ke halaman bayar.html -->
+          <a class="btn btn-cta" href="bayar.html">Dapatkan Ebooknya Sekarang</a>
           <p class="hero-note">Format PDF • Bisa dibaca di HP • Bayar via QRIS — scan dari aplikasi bank & e-wallet apa pun</p>
         </div>
       </div>
@@ -118,33 +110,14 @@
           <li>✅ 6 bonus printable</li>
           <li>✅ Akses update seumur hidup</li>
         </ul>
-        <!-- PEMBAYARAN: tombol ke bagian QRIS #bayar -->
-        <a class="btn btn-cta btn-big" href="#bayar">Beli Sekarang</a>
-        <p class="price-note">Cukup scan QRIS di bagian pembayaran bawah. Ebook + bonus dikirim ke email setelah pembayaran terkonfirmasi.</p>
+        <!-- PEMBAYARAN: tombol ke halaman bayar.html -->
+        <a class="btn btn-cta btn-big" href="bayar.html">Beli Sekarang</a>
+        <p class="price-note">Klik tombol beli untuk lanjut ke halaman pembayaran (scan QRIS). Ebook + bonus dikirim ke email setelah pembayaran terkonfirmasi.</p>
       </div>
     </div>
   </section>
 
 
-  <!-- ============ PEMBAYARAN QRIS ============ -->
-  <section class="section" id="bayar">
-    <div class="container">
-      <h2>Bayar pakai QRIS</h2>
-      <p class="lead">Satu kode untuk semua aplikasi: scan dengan mobile banking atau e-wallet apa pun — BCA, BRI, Mandiri, GoPay, OVO, DANA, ShopeePay, dan lainnya.</p>
-      <div class="qris-card">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYgAAAGIAQMAAABhjeVlAAAABlBMVEX///8AAABVwtN+AAADAklEQVR42u1cS25cMQwji97/yuxCouxXtEC7sFZ0gskgYyMABZPU5wXIysr62yKgficK1PUTFEUIhOhd+PHffyMn/n39rJgA6sBQECBCBCoK/b53Bd3X8YCAAlx1ITgR4bW1dgXdrROS6g4QLJ6SIJ2rE6yW7seRkpITFWkBdUGoYLUaj2YlEQIoQaXzFg7i2hV0X5+QpLoVfR/adVEA1F/eFXRf3w9+DXDD3+xVcnIre9B9eYKlFhTwW6ZRgVL/Gu27kn+8PVHGyrRUrFSGSvKH9U5BdyseExShlKQjJDkKHaPkgysnBIDs9KOpSs7Iy24VV4lB97meNxtZvFvGWzYqEv17JT9f4ivZ0p535i3vsIIE3cf+ytYJTsV5XFXdnKplNZ0F3dd8VTm4zFcYOyVCHP9bnjjovuYr6eNuL4IyldmBKf5qpX7lWlWn4R2JkydW9YRQ/NWGnp8q1WSDmhTEN2OuTNB9zVeT7kkX+GYrOVXsbUH3ef3K+NtdnWa5k8Bu5Sb/WNCPjsLdA6Q4PfQWkvk86C74K+vHVLIwpayjL1XNCrqv78dcAF53xOMkNlyeMAm6z/UDnFGfGrm6eyCdm0c/FvnKzmryv0/VqhsjqbdvnXBVhFK3zC9xrzKWNHQWdF/ng0fG4VRwuoRd49VJU4LuQjykcVA6Naupvt/8FXTfnxCLsI669/dU2QUp/cEVfwW4IYvLSMkt2jJeE5ig+56vjoToEgpd7cL0B7HZPxevGXe6Uw722KJvh9KPWso/puDu0snUenWnItHzDb7CENSMXzkP1D15lfndFb7yowUqwnLppDlqBh6SDy72o66m09UpxJlP1AwrBt33freTkPG2nn+D5+HOuHvQXfBXHRmKcuvJ3ShNtPol6L7WD7c6OgcUyEtLOJcmfLXCV+q+h6Myoo7TEvFm5fmPBT3X9Gt1xuBaxz8ZetDd4KuvuE9zVmC9XnY3+rHid60f89DmdD2umffUr5b0w1LRjzvXsM/5XxnzWerta/WSrKysP6xfZXZkil+aZN8AAAAASUVORK5CYII=" alt="Kode QRIS pembayaran Bye Bye GTM" />
-        <p class="qris-merchant">BYE BYE GTM!</p>
-        <p class="qris-amount">Nominal bayar: <strong>Rp79.000</strong></p>
-        <ol class="qris-steps">
-          <li>Buka aplikasi bank atau e-wallet, pilih menu <strong>Scan / QRIS</strong>.</li>
-          <li>Scan kode di atas, lalu masukkan nominal <strong>Rp79.000</strong> (QRIS statis — nominal diisi manual, pastikan sama persis).</li>
-          <li>Selesaikan pembayaran dan simpan bukti bayarnya.</li>
-          <li>Ebook + bonus dikirim ke email-mu setelah pembayaran terkonfirmasi.</li>
-        </ol>
-        <p class="qris-note">⚠️ QRIS di atas masih <strong>CONTOH (dummy)</strong> untuk pratinjau tampilan — belum bisa menerima pembayaran. Akan diganti QRIS asli sebelum halaman dipromosikan.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ FAQ ============ -->
   <section class="section alt" id="faq">
@@ -180,8 +153,8 @@
     <div class="container">
       <h2>Ucapkan selamat tinggal pada drama GTM 👋</h2>
       <p class="lead">Mulai perjalanan MPASI yang lahap dan menyenangkan hari ini juga.</p>
-      <!-- PEMBAYARAN: tombol ke bagian QRIS #bayar -->
-      <a class="btn btn-cta btn-big" href="#bayar">Dapatkan Ebook Bye Bye GTM!</a>
+      <!-- PEMBAYARAN: tombol ke halaman bayar.html -->
+      <a class="btn btn-cta btn-big" href="bayar.html">Dapatkan Ebook Bye Bye GTM!</a>
     </div>
   </section>
 
